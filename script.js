@@ -100,3 +100,61 @@ let loopDoJogo = setInterval(function(){
 
     }
 }, 10) //10 milissegundos
+
+
+
+
+
+
+
+//FUNÇÃO PARA REINICIAR
+function reiniciarJogo(){
+    console.log('=== REINICIANDO JOGO ===');
+
+    //ESCONDER A TELA DE GAME OVER
+    telaFim.styel.visibility = `hidden`;
+
+    //RESTAURAR O CANO
+    cano.style.animation = `mexexCano 1.5s infinite linear`;
+    cano.style.left = ``;
+
+    //RESTAURA O MARIO
+    mario.src = `mario.gif`;
+    mario.style.width = `130px`;
+    mario.style.bottom = `0px`;
+    mario.style.animation = ``; //remove qualquer animação fixa
+
+
+    //===============================
+    // >> CRIAR UM NOVO LOOP <<
+    //===============================
+
+    loopJogo = setInterval(function(){
+        let posicaoCano = cano.offsetLeft;
+        let posicaoMario = +window.getComputedStyle(mario).bottom.replace(`px`,``)
+
+        //A MESMA CONDIÇÃO DE COLISÃO
+        if (posicaoCano <=100 && posicaoCano > 0 && posicaoMario < 60){
+            console.log(`===== COLISÃO NO JOGO REINICIANDO`);
+
+            cano.style.animation = `none`;
+            cano.style.left = posicaoCano + `px`;
+
+            mario.style.animation = `none`;
+            mario.style.bottom = posicaoMario + `px`;
+            mario.src = `./img/game-over.png`;
+            mario.style.width = `70px`;
+
+            telaFim.style.visibility = `visible`;
+
+            clearInterval(loopDoJogo);
+
+        }
+    }, 10);
+
+    //FAZER O BOTÃO DE REINICIAR
+    botaoReiniciar.addEventListener(`click`, function(){
+        console.log(`Botão Reiniciar Clicado!`);
+        reiniciarJogo();
+    });
+}

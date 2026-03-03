@@ -112,24 +112,24 @@ function reiniciarJogo(){
     console.log('=== REINICIANDO JOGO ===');
 
     //ESCONDER A TELA DE GAME OVER
-    telaFim.styel.visibility = `hidden`;
+    telaFim.style.visibility = `hidden`;
 
     //RESTAURAR O CANO
-    cano.style.animation = `mexexCano 1.5s infinite linear`;
-    cano.style.left = ``;
+    cano.style.animation = `mexerCano 1.5s infinite linear`;
+    cano.style.left = "";
 
     //RESTAURA O MARIO
-    mario.src = `mario.gif`;
+    mario.src = `./img/mario.gif`;
     mario.style.width = `130px`;
     mario.style.bottom = `0px`;
-    mario.style.animation = ``; //remove qualquer animação fixa
+    mario.style.animation = ""; //remove qualquer animação fixa
 
 
     //===============================
     // >> CRIAR UM NOVO LOOP <<
     //===============================
 
-    loopJogo = setInterval(function(){
+    loopDoJogo = setInterval(function(){
         let posicaoCano = cano.offsetLeft;
         let posicaoMario = +window.getComputedStyle(mario).bottom.replace(`px`,``)
 
@@ -152,9 +152,9 @@ function reiniciarJogo(){
         }
     }, 10);
 
-    //FAZER O BOTÃO DE REINICIAR
-    botaoReiniciar.addEventListener(`click`, function(){
-        console.log(`Botão Reiniciar Clicado!`);
-        reiniciarJogo();
-    });
 }
+//FAZER O BOTÃO DE REINICIAR
+botaoReiniciar.addEventListener(`click`, function(){
+    console.log(`Botão Reiniciar Clicado!`);
+    reiniciarJogo();
+});

@@ -91,7 +91,7 @@ let loopDoJogo = setInterval(function(){
 
         //TROCA A IMAGM DO MARIO PARA GAME OVER
         mario.src = `./img/game-over.png`;
-        mario.style.width = `70px`;
+        mario.style.width = `150px`;
 
         //MOSTRAR A TELA DE GAME OVER
         telaFim.style.visibility = 'visible';
@@ -119,7 +119,7 @@ function reiniciarJogo(){
     cano.style.left = "";
 
     //RESTAURA O MARIO
-    mario.src = `./img/mario.gif`;
+    mario.src = `./img/krisesusie.gif`;
     mario.style.width = `130px`;
     mario.style.bottom = `0px`;
     mario.style.animation = ""; //remove qualquer animação fixa
@@ -143,7 +143,7 @@ function reiniciarJogo(){
             mario.style.animation = `none`;
             mario.style.bottom = posicaoMario + `px`;
             mario.src = `./img/game-over.png`;
-            mario.style.width = `70px`;
+            mario.style.width = `150px`;
 
             telaFim.style.visibility = `visible`;
 
